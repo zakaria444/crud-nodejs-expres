@@ -4,7 +4,9 @@
   "description": "crud with expres",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,10 @@
   "homepage": "https://github.com/zakaria444/crud-nodejs-expres#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
     "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
     "sequelize": "^6.12.5",
     "sequelize-cli": "^6.3.0"
