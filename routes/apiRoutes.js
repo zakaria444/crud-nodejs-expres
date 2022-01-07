@@ -5,7 +5,9 @@ const fs=require("fs");
 
 //get all user
 router.get("/index",(req,res)=>{
-    db.user.findAll().then(users =>res.render('index.ejs'))
+    db.user.findAll().then(users =>res.render('index.ejs',{
+        alluser:users
+    }))
 });
 
 //get singel user by id 
