@@ -4,10 +4,14 @@ const db =require("../models");
 const fs=require("fs");
 
 //get all user
-router.get("/index",(req,res)=>{
-    db.user.findAll().then(users =>res.render('index.ejs',{
-        alluser:users
-    }))
+router.get("/index",async (req,res)=>{
+    const users= await db.user.findAll()
+    const depart= await db.departement.findAll()
+    
+    res.render('index.ejs',{
+        alluser:users,
+        allDep: depart,
+    })
 });
 router.get("/ajouter",(req,res)=>{
   res.render('departement.ejs')
@@ -34,6 +38,7 @@ router.post("/post",(req,res)=>{
        
 
     }).then(Submiteduser =>res.send(""));
+
     res.redirect("/api/index");
 });
 
@@ -49,6 +54,7 @@ router.post("/depart",(req,res)=>{
     }).then(Submiteduser =>res.send(""));
     res.redirect("/api/ajouter");
 });
+
 
 
 module.exports = router;

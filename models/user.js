@@ -14,22 +14,23 @@ module.exports= (sequelize,DataTypes)=>{
         }
 
     });
-    return user;
-
+    
+        return user;
+   
   
 };
 
-module.exports= (sequelize,DataTypes)=>{
-const depart= sequelize.define("departement",{
-    name:   {
-        type: DataTypes.STRING,
-        allowNnul : false
-    },
-    description:   {
-        type: DataTypes.STRING,
-        allowNnul : false
-    },
+// module.exports= (sequelize,DataTypes)=>{
+// const depart= sequelize.define("departement",{
+//     name:   {
+//         type: DataTypes.STRING,
+//         allowNnul : false
+//     },
+//     description:   {
+//         type: DataTypes.STRING,
+//         allowNnul : false
+//     },
  
 
-});
-return depart;};
+// });
+// return depart;};
