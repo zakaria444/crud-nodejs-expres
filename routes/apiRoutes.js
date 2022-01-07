@@ -9,6 +9,9 @@ router.get("/index",(req,res)=>{
         alluser:users
     }))
 });
+router.get("/ajouter",(req,res)=>{
+  res.render('departement.ejs')
+});
 
 //get singel user by id 
 router.get("/index/:id",(req,res)=>{
@@ -32,6 +35,19 @@ router.post("/post",(req,res)=>{
 
     }).then(Submiteduser =>res.send(""));
     res.redirect("/api/index");
+});
+
+//post new departement
+router.post("/depart",(req,res)=>{
+    console.log(req.body);
+    db.departement.create({
+        name:req.body.name,
+        description:req.body.description,
+
+       
+
+    }).then(Submiteduser =>res.send(""));
+    res.redirect("/api/ajouter");
 });
 
 
