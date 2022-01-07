@@ -29,6 +29,7 @@ router.post("/post",(req,res)=>{
        
 
     }).then(Submiteduser =>res.send(""));
+    res.redirect("/api/index");
 });
 
 
