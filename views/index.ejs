@@ -472,9 +472,28 @@ a {
                 
               </table>
 
-
-
-
+              <table border="1">
+                <tr>
+                    <th>Full Name</th>
+                    <th>description</th>
+                </tr>
+                
+                <%
+                if(allDep.length!=0){
+                var i=1;
+                allDep.forEach(function(data){
+                %>
+                <tr>
+                    <td><%=data.name %></td>
+                    <td><%=data.description %></td>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
+            </table>
+            </div>
 
 
 
@@ -497,8 +516,8 @@ a {
 <form action="post" method="post">
   
     <div class="login-box">
-        <h1>Ajouter User</h1>
-        <p class="label">Username</p>
+        <h1>Ajouter User </h1>
+        <p class="label">Username </p>
         <div class="input-box">
             <input class="" name="username" type="text" placeholder="Username"></input>
         </div>
