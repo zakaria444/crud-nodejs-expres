@@ -460,40 +460,16 @@ a {
                 <% } %>
             </table>
             </div>
-
-
-
-                    
-                    
-             
-                    
-               
                 </tbody>
                 
               </table>
 
-              <table border="1">
-                <tr>
-                    <th>Full Name</th>
-                    <th>description</th>
-                </tr>
-                
-                <%
-                if(allDep.length!=0){
-                var i=1;
-                allDep.forEach(function(data){
-                %>
-                <tr>
-                    <td><%=data.name %></td>
-                    <td><%=data.description %></td>
-                <%  i++; }) %>
-                <% } else{ %>
-                    <tr>
-                        <td colspan="7">No Data Found</td>
-                    </tr>
-                <% } %>
-            </table>
-            </div>
+
+
+
+
+
+           
 
 
 
@@ -531,12 +507,17 @@ a {
         </div>
         <p class="label">Departement</p>
         <div class="select">
-            <select >  
+          <select >  
+            <%
+            if(allDep.length!=0){
+            var i=1;
+            allDep.forEach(function(data){
+            %>
+            <option value="2"><%=data.name %></option>
            
-              <option value="1"></option>
-              <option value="2">No JS</option>
-              <option value="3">Nice!</option>
-            </select>
+            <%  i++; }) %>
+            <% }  %>
+          </select>
           </div>
         <input type="submit" class="button" value="Submit">
     </div>
