@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         * {
+                 * {
         box-sizing: border-box;
         }
 
@@ -229,308 +229,31 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
 
-
-
-
-table {
-  width: 100%;
-  border-spacing: 0;
-  border-radius: 1em;
-  overflow: hidden;
-}
-
-thead {
- visibility: hidden;
- position: absolute;
- width: 0;
- height: 0;
-}
-
-th {
-  background: #215A8E;
-  color: #fff;
-}
-
-td:nth-child(1) {
-  background: #215A8E;
-  color: #fff;
-  border-radius: 1em 1em 0 0;
-}
-
-th, td {
-  padding: 1em;
-}
-
-tr, td {
-  display: block;
-}
-
-td {
-  position: relative;
-}
-
-td::before {
-  content: attr(data-label);
-  position: absolute;
-  left: 0;
-  padding-left: 1em;
-  font-weight: 600;
-  font-size: .9em;
-  text-transform: uppercase;
-}
-
-tr {
-  margin-bottom: 1.5em;
-  border: 1px solid #ddd;
-  border-radius: 1em;
-  text-align: right;
-}
-
-tr:last-of-type {
-  margin-bottom: 0;
-}
-
-td:nth-child(n+2):nth-child(odd) {
-  background-color: #ddd;
-}
-
-
-@media only screen and (min-width: 768px) {
-  
-  table {
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-  }
-  
-  thead {
-    visibility: visible;
-    position: relative;
-  }
-  
-  th {
-    text-align: left;
-    text-transform: uppercase;
-    font-size: .9em;
-  }
-  
-  tr {
-    display: table-row;
-    border: none;
-    border-radius: 0;
-    text-align: left;
-  }
-  
-  tr:nth-child(even) {
-  background-color: #ddd;
-}
-  
-  td {
-    display: table-cell;
-  }
-  
-  td::before {
-    content: none;
-  }
-  
-  td:nth-child(1) {
-    background: transparent;
-    color: #444;
-    border-radius: 0;
-  }
-  
-  td:nth-child(n+2):nth-child(odd) {
-    background-color: transparent;
-  }
-  
-  
-}
-:root {
-  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-  --gray: #34495e;
-  --darkgray: #2c3e50;
-}
-
-select {
-  /* Reset Select */
-  appearance: none;
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  /* Personalize */
-  flex: 1;
-  padding: 0 1em;
-  color: #fff;
-  background-color: var(--darkgray);
-  background-image: none;
-  cursor: pointer;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
-}
-/* Custom Select wrapper */
-.select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: .25em;
-  overflow: hidden;
-}
-/* Arrow */
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1em;
-  background-color: #34495e;
-  transition: .25s all ease;
-  pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
-}
-
-/* Other styles*/
-
-h1 {
-  margin: 0 0 0.25em;
-}
-a {
-  font-weight: bold;
-  color: var(--gray);
-  text-decoration: none;
-  padding: .25em;
-  border-radius: .25em;
-  background: white;
-}
-
     </style>
 </head>
 <body>
-    <div class="table-data" style="
-    border: solid;
-    background-color: rebeccapurple;
-    margin-right: 50px;
 
-">
-        <h2 style="
-        color: aquamarine;
-        text-align: center;
-    ">Display User </h2>
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>Full Name</th>
-                    <th>Email Address</th>
-                    <th>Password</th>
-                    <th>Date</th>
-                    <th>Departement</th>
-
-                    
-                </tr>
-                
-                <%
-                if(alluser.length!=0){
-                var i=1;
-                alluser.forEach(function(data){
-                %>
-                <tr>
-                    <td><%=i; %></td>
-                    <td><%=data.user %></td>
-                    <td><%=data.email %></td>
-                    <td><%=data.password %></td>
-                    <td><%=data.createdAt %></td>
-                    <td><%=data.departement.name%></td>
-                   
-
-                    <td><a style="
-                        text-decoration: none;
-                        color: black;
-                    " href="index/<%=data.id%>">Edit</a></td>
-                    <td><a style="
-                        text-decoration: none;
-                        color: black;
-                    " href="/users/delete/<%=data.id%>">Delete</a></td>
-                </tr>
-                <%  i++; }) %>
-                <% } else{ %>
-                    <tr>
-                        <td colspan="7">No Data Found</td>
-                    </tr>
-                <% } %>
-            </table>
-            </div>
-                </tbody>
-                
-              </table>
-
-
-
-
-
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-    
-
-<form action="post" method="post">
+<form action="edit/<%= userid.id%>" method="post">
   
     <div class="login-box">
-        <h1>Ajouter User </h1>
+        <h1>Edit User </h1>
         <p class="label">Username </p>
         <div class="input-box">
-            <input class="" name="username" type="text" placeholder="Username"></input>
+            <input class="" name="username" type="text" placeholder="<%= userid.user %>"></input>
         </div>
         <p class="label">Email</p>
         <div class="input-box">
-            <input class="" name="email" type="email" placeholder="Email"></input>
+            <input class="" name="email"  placeholder="<%= userid.email %>"></input>
+        </div>
+        <div class="input-box">
+            <input class="" name="email"  placeholder="<%=departement.name%>"></input>
         </div>
         <p class="label">Password</p>
         <div class="input-box">
-            <input  class="" name="password" type="password"></input>
-        </div>
-       
-        <p class="label">Departement</p>
-        <div class="departem" style="display: flex;">
-        <div class="select">
-          <select name="depid" >  
-            <%
-            if(allDep.length!=0){
-            var i=1;
-            allDep.forEach(function(data){
-            %>
-            <option value="<%=data.id %>"><%=data.name %></option>
-           
-            <%  i++; }) %>
-            <% }  %>
-          </select>
-
-          </div>
-          <h5 style="
-          margin-left: 10px;
-      "><a href="ajouter">Ajouter Departement</a></h5>
-
-        </div>
-        <input type="submit" class="button" value="Submit">
+            <input  class="" name="password" placeholder="<%= userid.password %>" type="password"></input>
+        </div>      
+        <input type="submit" class="button" value="Edit">
     </div>
-</form></body>
+</form>
+</body>
 </html>

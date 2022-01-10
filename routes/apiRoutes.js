@@ -5,7 +5,14 @@ const fs=require("fs");
 
 //get all user
 router.get("/index",async (req,res)=>{
-    const users= await db.user.findAll()
+    const users= await db.user.findAll({
+        include: {
+            model: db.departement,
+            as: 'departement'
+        }
+    })
+
+    // res.json(users)
     const depart= await db.departement.findAll()
     
     res.render('index.ejs',{
@@ -13,17 +20,30 @@ router.get("/index",async (req,res)=>{
         allDep: depart,
     })
 });
+
 router.get("/ajouter",(req,res)=>{
   res.render('departement.ejs')
 });
 
 //get singel user by id 
-router.get("/index/:id",(req,res)=>{
-    db.user.findAll({
-        where:{
-            id: req.params.id
-        }
-    }).then(users =>res.render('index.ejs') );
+router.get("/index/:id", async (req,res)=>{
+    const userbyid= await db.user.findOne({ where:{id: req.params.id}})
+    // res.json(userbyid)
+    res.render('edit.ejs',{
+        userid:userbyid,
+    }) ;
+   
+});
+
+
+
+
+router.get("/edit/:id", async (req,res)=>{
+    const userbyid= await db.user.update({ where:{id: req.params.id}})
+    // res.json(userbyid)
+    res.render('edit.ejs',{
+        userid:userbyid,
+    }) ;
    
 });
 
@@ -34,6 +54,7 @@ router.post("/post",(req,res)=>{
         user:req.body.username,
         email:req.body.email,
         password:req.body.password,
+        departementId:req.body.depid,
 
        
 
@@ -54,6 +75,25 @@ router.post("/depart",(req,res)=>{
     }).then(Submiteduser =>res.send(""));
     res.redirect("/api/ajouter");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
