@@ -27,10 +27,26 @@ router.get("/ajouter",(req,res)=>{
 
 //get singel user by id 
 router.get("/index/:id", async (req,res)=>{
-    const userbyid= await db.user.findOne({ where:{id: req.params.id}})
-    // res.json(userbyid)
+    const userbyid= await db.user.findOne({ where:{id: req.params.id},})
+    const depid= await db.departement.findOne({ where:{id: userbyid.departementId},})
+
+    // res.json(userbyid.departementId)
     res.render('edit.ejs',{
         userid:userbyid,
+        Dep :depid,
+    }) ;
+   
+});
+
+
+router.post("/delete/:id", async (req,res)=>{
+    const userbyid= await db.user.findOne({ where:{id: req.params.id},})
+    const depid= await db.departement.findOne({ where:{id: userbyid.departementId},})
+
+    // res.json(userbyid.departementId)
+    res.render('edit.ejs',{
+        userid:userbyid,
+        Dep :depid,
     }) ;
    
 });
@@ -38,12 +54,20 @@ router.get("/index/:id", async (req,res)=>{
 
 
 
-router.get("/edit/:id", async (req,res)=>{
-    const userbyid= await db.user.update({ where:{id: req.params.id}})
-    // res.json(userbyid)
-    res.render('edit.ejs',{
-        userid:userbyid,
-    }) ;
+router.post("/edit/:id", async (req,res)=>{
+    console.log("hello");
+    const userbyid= await db.user.findOne({ where:{id: req.params.id}})
+    const userbyidi= await userbyid.update({ 
+         user: req.body.username ,
+         email: req.body.email ,
+         password: req.body.password ,
+
+
+    
+    
+    })
+ 
+    res.redirect("/api/index");
    
 });
 

@@ -233,7 +233,7 @@
 </head>
 <body>
 
-<form action="edit/<%= userid.id%>" method="post">
+<form action="/api/edit/<%= userid.id%>" method="post">
   
     <div class="login-box">
         <h1>Edit User </h1>
@@ -245,13 +245,19 @@
         <div class="input-box">
             <input class="" name="email"  placeholder="<%= userid.email %>"></input>
         </div>
-        <div class="input-box">
-            <input class="" name="email"  placeholder="<%=departement.name%>"></input>
-        </div>
         <p class="label">Password</p>
         <div class="input-box">
-            <input  class="" name="password" placeholder="<%= userid.password %>" type="password"></input>
-        </div>      
+            <input  class="" name="password" placeholder="<%= userid.password %>" type="password"> </input>
+        </div> 
+        <p class="label">Name departement</p>
+        <div class="input-box">
+            <input class="" name="email"  placeholder="<%= Dep.name%>"></input>
+        </div>
+        <p class="label">Description departement</p>
+        <div class="input-box">
+            <input class="" name="email"  placeholder="<%= Dep.description%>"></input>
+        </div>
+            
         <input type="submit" class="button" value="Edit">
     </div>
 </form>
