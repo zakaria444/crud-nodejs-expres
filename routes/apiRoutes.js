@@ -39,16 +39,12 @@ router.get("/index/:id", async (req,res)=>{
 });
 
 
-router.post("/delete/:id", async (req,res)=>{
-    const userbyid= await db.user.findOne({ where:{id: req.params.id},})
-    const depid= await db.departement.findOne({ where:{id: userbyid.departementId},})
+router.get("/delete/:id", async (req,res)=>{
+    const userbyid= await db.user.destroy({ where:{id: req.params.id},})
 
     // res.json(userbyid.departementId)
-    res.render('edit.ejs',{
-        userid:userbyid,
-        Dep :depid,
-    }) ;
-   
+    res.redirect("/api/index");
+
 });
 
 
