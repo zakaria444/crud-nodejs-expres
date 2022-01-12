@@ -90,6 +90,20 @@ router.post("/edit/:id", async (req,res)=>{
    
 });
 
+
+router.post("/editdep/:id", async (req,res)=>{
+    console.log("hello");
+    const userbyid= await db.departement.findOne({ where:{id: req.params.id}})
+    const userbyidi= await userbyid.update({ 
+         user: req.body.name ,
+         description: req.body.description ,
+ 
+    })
+ 
+    res.redirect("/api/ajouter");
+   
+});
+
 //post new user
 router.post("/post",(req,res)=>{
     console.log(req.body);

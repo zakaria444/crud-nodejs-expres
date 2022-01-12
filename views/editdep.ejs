@@ -233,17 +233,17 @@
 </head>
 <body>
 
-<form action="/api/edit/<%=Dep.id%>" method="post">
+<form action="/api/editdep/<%=Dep.id%>" method="post">
   
     <div class="login-box">
         <h1>Edit Departement </h1>
         <p class="label">Username </p>
         <div class="input-box">
-            <input class="" name="username" type="text" placeholder="<%=  Dep.name %>"></input>
+            <input class="" name="name" type="text" placeholder="<%=  Dep.name %>"></input>
         </div>
         <p class="label">Email</p>
         <div class="input-box">
-            <input class="" name="email"  placeholder="<%=  Dep.description %>"></input>
+            <input class="" name="description"  placeholder="<%=  Dep.description %>"></input>
         </div>
        
         
