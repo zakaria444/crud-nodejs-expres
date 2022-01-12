@@ -21,8 +21,13 @@ router.get("/index",async (req,res)=>{
     })
 });
 
-router.get("/ajouter",(req,res)=>{
-  res.render('departement.ejs')
+router.get("/ajouter",async(req,res)=>{
+    const depart= await db.departement.findAll()
+
+  res.render('departement.ejs',{
+    allDep: depart,
+
+  })
 });
 
 //get singel user by id 
@@ -38,12 +43,30 @@ router.get("/index/:id", async (req,res)=>{
    
 });
 
+router.get("/editdep/:id", async (req,res)=>{
+    const depid= await db.departement.findOne({ where:{id: req.params.id},})
+
+    // res.json(userbyid.departementId)
+    res.render('editdep.ejs',{
+        Dep :depid,
+    }) ;
+   
+});
+
 
 router.get("/delete/:id", async (req,res)=>{
     const userbyid= await db.user.destroy({ where:{id: req.params.id},})
 
     // res.json(userbyid.departementId)
     res.redirect("/api/index");
+
+});
+
+router.get("/deletee/:id", async (req,res)=>{
+    const userbyid= await db.departement.destroy({ where:{id: req.params.id},})
+
+    // res.json(userbyid.departementId)
+    res.redirect("/api/ajouter");
 
 });
 
