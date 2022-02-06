@@ -1,7 +1,6 @@
 const expres = require('express');
 const router =expres.Router();
 const db =require("../models");
-const fs=require("fs");
 
 //get all user
 router.get("/index",async (req,res)=>{
@@ -14,7 +13,8 @@ router.get("/index",async (req,res)=>{
 
     // res.json(users)
     const depart= await db.departement.findAll()
-    
+        // res.json(userbyid.departementId)
+
     res.render('index.ejs',{
         alluser:users,
         allDep: depart,
@@ -106,7 +106,7 @@ router.post("/editdep/:id", async (req,res)=>{
 
 //post new user
 router.post("/post",(req,res)=>{
-    console.log(req.body);
+   
     db.user.create({
         user:req.body.username,
         email:req.body.email,

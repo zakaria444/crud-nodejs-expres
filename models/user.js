@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNnul: false,
         },
+      
+
     });
 
     user.associate = (models) => {
