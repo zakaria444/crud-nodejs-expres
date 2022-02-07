@@ -59,10 +59,9 @@
 ## Connect with me:
 <p align="left">
 
-<a href = "https://www.linkedin.com/in/ayoub-essalhi/"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/></a>
-<a href = "https://twitter.com/C3asar_"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
+<a href = "https://www.linkedin.com/in/zakaria-el-ismaili-57059920b/"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/></a>
+<a href = "https://twitter.com/Zakaria37555798"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
 
 </p>
 
 ## ❤ Views and Followers
-<a href="https://github.com/C3asar?tab=followers"><img src="https://img.shields.io/github/followers/C3asar?label=Followers&style=social" alt="GitHub Badge"></a>
